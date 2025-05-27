@@ -1,7 +1,9 @@
 version: '3.9'
 services:
   directorylister:
-    image: psycho0verload/directorylister:latest
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
       - ./files:/var/www/html/
