@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  directorylister:
+    image: psycho0verload/directorylister:latest
+    restart: unless-stopped
+    volumes:
+      - ./files:/var/www/html/
+      - ./config/.env:/var/www/html/.env
+    ports:
+      - "80:4981"
