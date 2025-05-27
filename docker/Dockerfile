@@ -1,9 +1,13 @@
 ARG ALPINE_VERSION=latest
 FROM alpine:${ALPINE_VERSION}
+
 WORKDIR /var/www/html
+
 RUN apk add --no-cache \
   curl \
-  nginx \
+  nginx 
+  
+RUN apk add --no-cache \
   php84 \
   php84-ctype \
   php84-fileinfo \
