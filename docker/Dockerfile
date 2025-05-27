@@ -24,8 +24,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     php-fileinfo \
     php-ctype \
     php-phar \
-    php-session \
-    php-zlib \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
