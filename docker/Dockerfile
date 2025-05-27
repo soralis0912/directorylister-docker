@@ -4,32 +4,32 @@ WORKDIR /var/www/html
 RUN apk add --no-cache \
   curl \
   nginx \
-  php81 \
-  php81-ctype \
-  php81-fileinfo \
-  php81-zip \
-  php81-curl \
-  php81-dom \
-  php81-fpm \
-  php81-gd \
-  php81-intl \
-  php81-mbstring \
-  php81-opcache \
-  php81-openssl \
-  php81-phar \
-  php81-session \
-  php81-tokenizer \
-  php81-xml \
-  php81-xmlreader \
-  php81-zlib \
+  php84 \
+  php84-ctype \
+  php84-fileinfo \
+  php84-zip \
+  php84-curl \
+  php84-dom \
+  php84-fpm \
+  php84-gd \
+  php84-intl \
+  php84-mbstring \
+  php84-opcache \
+  php84-openssl \
+  php84-phar \
+  php84-session \
+  php84-tokenizer \
+  php84-xml \
+  php84-xmlreader \
+  php84-zlib \
 
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
-COPY config/php.ini /etc/php81/conf.d/custom.ini
+COPY config/fpm-pool.conf /etc/php84/php-fpm.d/www.conf
+COPY config/php.ini /etc/php84/conf.d/custom.ini
 
 # Download 
 ARG DIRECTORYLISTER_VERSION=3.12.3
