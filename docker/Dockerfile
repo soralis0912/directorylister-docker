@@ -23,7 +23,6 @@ RUN apk add --no-cache \
   php84-xmlreader \
   php84-zlib \
 
-
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
