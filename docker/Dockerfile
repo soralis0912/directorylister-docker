@@ -38,6 +38,7 @@ COPY config/php.ini /usr/local/etc/php/conf.d/custom.ini
 ARG DIRECTORYLISTER_VERSION=3.12.3
 ADD https://github.com/DirectoryLister/DirectoryLister/releases/download/${DIRECTORYLISTER_VERSION}/DirectoryLister-${DIRECTORYLISTER_VERSION}.tar.gz /tmp/DirectoryLister.tar.gz
 
+RUN mkdir -p /var/www/html/DirectoryLister
 RUN tar -xf /tmp/DirectoryLister.tar.gz -C /var/www/html/DirectoryLister \
  && rm -f /tmp/DirectoryLister.tar.gz
 
