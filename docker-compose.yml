@@ -5,6 +5,6 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
-      - ./docker/config/.env:/var/www/html/.env
+      - ./docker/config/.env:/var/www/html/DirectoryLister/.env
     ports:
       - "4981:8080"
