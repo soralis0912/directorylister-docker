@@ -43,8 +43,7 @@ RUN tar -xf /tmp/DirectoryLister.tar.gz -C /var/www/html/DirectoryLister \
  && rm -f /tmp/DirectoryLister.tar.gz
 
 # Set permissions for www-data (php/nginx user)
-RUN chown -R www-data:www-data /var/www/html /var/log/nginx /var/lib/nginx \
- && mkdir -p /run/php && chown www-data:www-data /run/php
+RUN chown -R www-data:www-data /var/www/html /var/log/nginx /var/lib/nginx 
 
 # Expose port
 EXPOSE 8080
