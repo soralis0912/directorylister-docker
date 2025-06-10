@@ -13,5 +13,5 @@ services:
     restart: unless-stopped
 
   cache:
-    image: valkey:8-bookworm
+    image: valkey/valkey:8-bookworm
     restart: unless-stopped
