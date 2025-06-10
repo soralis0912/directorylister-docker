@@ -5,30 +5,6 @@ FROM php:${PHP_VERSION}-fpm-${DEBIAN_VERSION}
 # Set working directory
 WORKDIR /var/www/html
 
-# Install nginx and system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    nginx \
-    curl \
-    unzip \
-    libzip-dev \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    libicu-dev \
- && docker-php-ext-install \
-    zip \
-    pdo \
-    mbstring \
-    dom \
-    intl \
-    fileinfo \
-    gd \
-    opcache \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
-
-# Configure nginx
-COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
 COPY config/fpm-pool.conf /usr/local/etc/php-fpm.d/www.conf
