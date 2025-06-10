@@ -5,10 +5,8 @@ FROM nginx:${PHP_VERSION}-${DEBIAN_VERSION}
 # Set working directory
 WORKDIR /var/www/html
 
-
-# Configure PHP-FPM
-COPY config/fpm-pool.conf /usr/local/etc/php-fpm.d/www.conf
-COPY config/php.ini /usr/local/etc/php/conf.d/custom.ini
+# Configure nginx
+COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Download DirectoryLister
 ARG DIRECTORYLISTER_VERSION=3.12.3
