@@ -10,6 +10,14 @@ WORKDIR /var/www/html
 COPY config/fpm-pool.conf /usr/local/etc/php-fpm.d/www.conf
 COPY config/php.ini /usr/local/etc/php/conf.d/custom.ini
 
+# Install Extentions
+RUN apt-get update && apt-get install -y \
+    unzip \
+    zip \
+    libzip-dev \
+ && docker-php-ext-install zip
+
+
 # Download DirectoryLister
 ARG DIRECTORYLISTER_VERSION=3.12.3
 ADD https://github.com/DirectoryLister/DirectoryLister/releases/download/${DIRECTORYLISTER_VERSION}/DirectoryLister-${DIRECTORYLISTER_VERSION}.tar.gz /tmp/DirectoryLister.tar.gz
