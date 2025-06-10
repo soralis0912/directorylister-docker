@@ -1,20 +1,17 @@
 services:
-  app:
-    build:
-      context: ./docker/php
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    volumes:
-      - ./.env:/var/www/html/DirectoryLister/.env
-
-  nginx:
-    build:
-      context: ./docker/nginx
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    volumes:
-      - ./.env:/var/www/html/DirectoryLister/.env
-    depends_on:
-      - app
+  directory-lister:
+    image: directorylister/directorylister:5
+    environment:
+      CACHE_DRIVER: redis
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
     ports:
-      - "4981:8080"
+      - 4981:80
+    volumes:
+      - ./data:/data
+    depends_on: [cache]
+    restart: unless-stopped
+
+  cache:
+    image: valkey:8
+    restart: unless-stopped
