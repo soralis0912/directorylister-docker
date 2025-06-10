@@ -10,7 +10,7 @@ services:
       - "4981:8080"
   nginx:
     build:
-      context: ./nginx/php
+      context: ./docker/php
       dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
