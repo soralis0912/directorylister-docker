@@ -1,6 +1,6 @@
 ARG DEBIAN_VERSION=bookworm
 ARG NGINX_VERSION=1.27
-FROM php:${PHP_VERSION}-fpm-${DEBIAN_VERSION}
+FROM nginx:${PHP_VERSION}-${DEBIAN_VERSION}
 
 # Set working directory
 WORKDIR /var/www/html
