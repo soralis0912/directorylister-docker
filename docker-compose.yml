@@ -6,8 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./.env:/var/www/html/DirectoryLister/.env
-    ports:
-      - "4981:8080"
+
   nginx:
     build:
       context: ./docker/nginx
@@ -15,4 +14,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./.env:/var/www/html/DirectoryLister/.env
-
+    depends_on:
+      - app
+    ports:
+      - "4981:8080"
