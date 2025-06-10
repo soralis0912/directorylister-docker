@@ -18,3 +18,5 @@ RUN tar -xf /tmp/DirectoryLister.tar.gz -C /var/www/html/DirectoryLister \
 
 # Set permissions for www-data (php/nginx user)
 RUN chown -R www-data:www-data /var/www/html /var/log/nginx /var/lib/nginx 
+
+CMD ["sh", "-c", "nginx -g 'daemon off;'"]
