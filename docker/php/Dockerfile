@@ -28,4 +28,4 @@ EXPOSE 8080
 HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping || exit 1
 
 # Entrypoint to start both php-fpm and nginx
-CMD ["sh", "-c", "php-fpm -D"]
+CMD ["php-fpm", "-F"]
